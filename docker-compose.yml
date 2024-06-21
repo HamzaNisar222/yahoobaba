@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./projects:/var/www/
+      - ./nginx/project1.conf:/etc/nginx/sites-available/project1.conf
+      - ./nginx/project2.conf:/etc/nginx/sites-available/project2.conf
+      - ./php/php.ini:/etc/php/8.1/fpm/conf.d/99-custom.ini
+      - ./laravel-cron:/etc/cron.d/laravel-cron
+
+    ports:
+      - "8081:80"
+      - "8082:82"
+    depends_on:
+      - postgresql
+      - mongo
+
+  postgresql:
+    image: postgres:15
+    container_name: postgresql
+    environment:
+      - POSTGRES_DB=multivendor
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: unless-stopped
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+volumes:
+  dbdata:
+    driver: local
+  mongodb_data:
+    driver: local
