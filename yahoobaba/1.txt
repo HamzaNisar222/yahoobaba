@@ -1,0 +1,19 @@
+Laravel follows MVC
+PURPOSE: 
+1 Sepration of concerns 
+2 code organization
+
+Model
+=> Database
+=> Sql related queries
+
+View 
+=> User Insterfaces
+=> HTML
+
+Controllers
+=> Bussiness Logic
+=> Mediator between view and model
+
+
+ 

@@ -1,0 +1,61 @@
+ROUTE: URL of the webpages or APIS
+ 
+ Route is a class get is method which accepts two parameters
+ 1 route URL
+ 2 the function to run when the route is visited by the iuser 
+  ROUTE(CLASS)::get{METHOD}('/about,function(){
+    return view('Hello);
+ });
+
+PHP ARTISAN 
+1 SERVE // TO SERVE THE APPLICATION ON PHP SERVER
+2 ROUTE -h //related commands info 
+ 2.1 :cache {create route cache}  
+ 2.2 :list // to provide lists of routes
+ 2.3 :list --except-vendor //only custom created routes 
+ 2.4 :list --path=post //return routes related names
+
+
+
+ADVANCED RELATED ROUTING LARAVEL
+1 ROUTES PARAMETERS 
+ROUTE::get('/post/{id}', function(string $id){
+   return 'User'.$id
+})
+if we putt {id?} //means id is optional
+if we putt $id = null in function 
+
+ROUTE CONSTRAINTS 
+1 ONLY NUMERIC VARIABLE IS PASSED AS A PARAMETER TO THE ROUTE
+WhereNumber('id')
+2 ONLY Alphabetical VARIABLE IS PASSED AS A PARAMETER TO THE ROUTE
+whereAlpha('name')
+3 ONLY AlphaNUMERIC VARIABLE IS PASSED AS A PARAMETER TO THE ROUTE
+whereAlphaNumeric('name')
+4 When we need to get a decided value as a parameter in the route 
+whereIn('category',['movie', 'songs'])
+5 when we need make our own regular expression 
+where('id','[@0-9]+')
+
+
+
+NAMED ROUTES 
+named routes are basically used for solving a problem for example when we need to change the routes urls we dont need to chnage the anchors tags in view file again and again 
+
+NAMED ROUTES
+Route::get('/post-us',function(){
+    return "<h1>Post</h1>";
+
+})->name('post)
+
+REDIRECTIONS
+Route::redirect('/post','/post-us',301)
+redirect('what user will enter','route where to redirect the user',CODE)
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+CONTROLLER
+HOW TO CREATE CONTROLLER?
+1 => php artisan make:controller UserController
+
+ROUTE::controller( PageController::class)->group(function(){
+     Route::get('/post','index')->name('index');
+});
+
+1 INVOKEABLE CONTROLLER
+It is a single action controller
+COMMANDS
+PHP artisan make:controller UserController --invokable or -i
+EXAMPLE
+ class TestController extends controller {
+    public function __invokable() {
+        return view('post') or JSON respoonse;
+    }
+}
+
+ROUTE
+Route::get('/post',TestController::class) //will directlky run the invokable function 
+
+
+
+
+
+
+
+
+

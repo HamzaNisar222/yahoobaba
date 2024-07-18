@@ -1,0 +1,31 @@
+1 DATABASE 
+VARIABLES IN .env
+DB_CONNECTION=mysql/pgsql
+
+
+we can use different drivers for different databases
+mysql
+pgsql
+by default its also set in the config/database.php
+
+FOR CREATING TABLES WE USE MIGRATION FILES IN MIGRATION FOLDER
+for creating tables in core php we write raw queries to create table butt in laravel
+we use migration files to create tables
+COMMANDS
+php artisan make:migration filname
+
+everything is done by running the command
+return new class etends MIgration{
+    public function up():void{
+         Schema(CLASS)::create{METHOD}('students',function(Blueprint{CLASS for datatypes} $table){
+             //then we work in this function 
+             $table->id(){This is a method whoch makes id a primary key};
+             $table->string('name',30){string is also a method which is defined in Blueprint class to give datatype VARCHAR};
+         })
+    }  
+}
+after definign the table in the above function we run a command 
+
+php artisan migrate //This creates the table in the database
+
+BENIFITS WHEN WE SWITCH THE DEVELOPER FOR SAME PROOJECT IT WILL NOT BE PROBLAMATIC FOR YOU TO DO ANYTHING 

@@ -1,0 +1,13 @@
+Five folder we must know about 
+
+1 Model
+=> Database/SQL Queries
+2 Controllers
+=> Business logic files
+3 VIEWS
+=> Html Files
+4 Routings 
+=> Ulr Definig files
+5 Assets Folder
+=> imgages/fonts/Music/Videos/
+=> CSS/javascript Files
