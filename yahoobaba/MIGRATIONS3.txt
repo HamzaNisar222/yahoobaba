@@ -1,0 +1,12 @@
+till now we have coveerewd
+1 How to create  migration files 
+2 How to modify & create database tables
+3 How to add constraints & modifiers on tables
+4 How to Rollback and RESET migration
+
+
+NOW WE WILL CREATE RELATIONS BETWEEN THE TABLES 
+
+we have three ways to  make foreign key 
+
+1 $table->foreign('stu_is)->refrences 

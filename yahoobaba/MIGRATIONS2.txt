@@ -1,0 +1,57 @@
+Modification using migration 
+
+COLUMN
+1 Add a new column 
+2 Rename a column
+3 Delete a column
+4 Change column order
+5 Change datatype or size of a column
+
+TABLE 
+6 Rename Table
+7 Delete a table
+
+
+COMMMANDS:
+1 php artisan make:migration update_students_table --table=students //name of the migration does not matter as in the creation of a table
+=> Code:
+ return new class extends Migration
+{
+  public function up():void
+  {
+    Schema:table('students',function(Blueprint $table){
+
+    });
+  }
+}
+METHOD FOR MODIFICATION:
+of column:
+$table->renameColumn('from', 'to') only on MYSQL 8.0.3 AND GREATER 
+$table->dropColumn('column name') // we can also pass array  (['column1', 'column2','column3']);
+$table->after('password',function(Blueprint $table){
+    $table->string('token');
+})//for ading some columns after a specific column
+
+of tables:
+
+$table->rename('from','to')//for renaming the table 
+$table->drop('table name') // for droping the table
+Schema::dropIfExists('table name') // for droping the table if it exists
+
+if(Schema::hasTable('table name')){
+
+}//checkhs if table exists 
+if(Schema::hasColumn('table name','column name')){
+
+}//checkhs if column exists
+
+
+CONSTRAINTS IN LARAVEL 
+=> NOT NULL //by default activated $table->string('email')->nullable() //to make a column nulable
+=> UNIQUE //for making a value unique for evrey row $table->string('email')->unique()
+=> DEFAULT //for seting a default value $table->string('city')->default('Agra)
+=> PRIMARY KEY //AUTO INCREMENTED AND UNIQUE $table->primary('user_id)
+=> CHECK //for applying check on a column DB::statement('ALTER TABLE users ADD CONSTRAINT age CHECK(age>18);'); //RAW QUERY FOR CHEK 
+
+
+

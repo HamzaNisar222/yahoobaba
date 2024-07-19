@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
     php8.1-dom \
     php8.1-xml \
     php8.1-zip \
+    php8.1-mbstring\
     wget
 
 # Install Composer

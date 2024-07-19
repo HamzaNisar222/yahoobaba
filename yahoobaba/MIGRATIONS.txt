@@ -29,3 +29,16 @@ after definign the table in the above function we run a command
 php artisan migrate //This creates the table in the database
 
 BENIFITS WHEN WE SWITCH THE DEVELOPER FOR SAME PROOJECT IT WILL NOT BE PROBLAMATIC FOR YOU TO DO ANYTHING 
+
+
+
+COMMANDS
+1 php artisan make:migration create_students_table //for making a migration file for creating a table in database
+2 php artisan migrate //This creates the table in the database by running migration files
+2 php artisan migrate:status //status of the migration files either ran or NOT
+3 php artisan migrate --force //to forcefully migrate a new file on production side
+4 php artisan migrate:rollback --step=3(last three migrations) --batch=3(if from a batch we need to remove effects of 3)//for reversing the recent migration we ran 
+5 php artisan migrate:reset //for removing all the tables from database except from default migrations table 
+6 php artisan migrate:refresh //for rolling back all the tables from and again create it
+7 php artisan migrate:fresh //for droping all the tables from and again create it
+8 php artisan make:model Task -m //for making a model and create a migration file for it as well 
